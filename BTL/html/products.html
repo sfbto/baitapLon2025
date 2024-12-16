@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - Thiệp Viết Tay</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/ad.jpg" type="image/x-icon">
+    <style>
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .poster {
+            position: relative;
+            background: url('../img/poster.jpg') no-repeat center center;
+            background-size: cover;
+            height: 300px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        .poster:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+        .product-list {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product-card {
+            margin-bottom: 30px;
+
+        }
+    
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .poster {
+        position: relative;
+        background: url('../img/poster.jpg') no-repeat center center;
+        background-size: cover;
+        height: 300px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+        text-align: center;
+    }
+    .poster:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+    .product-list {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+    }
+    .product-image {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+    .product-card {
+        margin-bottom: 30px;
+    }
+    .btn-primary {
+        background-color: #ffeb3b; /* Màu vàng nhạt */
+        border-color: #ffeb3b;
+        color: #000; /* Màu chữ đen */ /* Đảm bảo viền cũng có màu giống */
+    }
+    .btn-primary:hover {
+        background-color: #fdd835; /* Màu vàng đậm hơn khi hover */
+        border-color: #fdd835;
+        color: #000; /* Màu chữ đen */ /* Đảm bảo viền cũng có màu giống khi hover */
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Thiệp Viết Tay</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Trang Chủ</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="about.html">Giới Thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Liên Hệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">Đăng Ký</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sitemap.html">Sitemap</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 ml-auto" onsubmit="return false;">
+                    <input class="form-control mr-sm-2" type="search" id="searchInput" placeholder="Tìm kiếm" aria-label="Search">
+                    <button class="btn btn-light my-2 my-sm-0" type="submit" onclick="searchProducts()">Tìm</button>
+                </form>
+                <div id="searchMessage"></div>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="container">
+        <a href="products.html" class="poster">
+            <!-- Có thể thêm nội dung vào poster nếu cần -->
+        </a>
+    </div>
+
+    <div class="container">
+        <h2>Các Sản Phẩm Nổi Bật</h2>
+        <div class="row">
+            <!-- Các sản phẩm -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product1.png" class="card-img-top" alt="Thiệp Chúc Mừng">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Chúc Mừng</h5>
+                        <p class="card-text">Giá: 50.000 VNĐ</p>
+                        <a href="order.html?product=chuc_mung" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product2.jpg.png" class="card-img-top" alt="Thiệp Sinh Nhật">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Sinh Nhật</h5>
+                        <p class="card-text">Giá: 60.000 VNĐ</p>
+                        <a href="order.html?product=sinh_nhat" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product3.jpg" class="card-img-top" alt="Thiệp Cảm Ơn">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Cảm Ơn</h5>
+                        <p class="card-text">Giá: 40.000 VNĐ</p>
+                        <a href="order.html?product=cam_on" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Thêm các sản phẩm khác -->
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product4.jpg" class="card-img-top" alt="Thiệp Chúc Mừng 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Chúc Mừng 2</h5>
+                        <p class="card-text">Giá: 55.000 VNĐ</p>
+                        <a href="order.html?product=chuc_mung_2" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product5.jpg" class="card-img-top" alt="Thiệp Sinh Nhật 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Sinh Nhật 2</h5>
+                        <p class="card-text">Giá: 65.000 VNĐ</p>
+                        <a href="order.html?product=sinh_nhat_2" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product6.jpg" class="card-img-top" alt="Thiệp Cảm Ơn 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Cảm Ơn 2</h5>
+                        <p class="card-text">Giá: 45.000 VNĐ</p>
+                        <a href="order.html?product=cam_on_2" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product7.jpg" class="card-img-top" alt="Thiệp Chúc Mừng 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Chúc Mừng 3</h5>
+                        <p class="card-text">Giá: 52.000 VNĐ</p>
+                        <a href="order.html?product=chuc_mung_3" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product8.jpg" class="card-img-top" alt="Thiệp Sinh Nhật 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Sinh Nhật 3</h5>
+                        <p class="card-text">Giá: 66.000 VNĐ</p>
+                        <a href="order.html?product=sinh_nhat_3" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product9.jpg" class="card-img-top" alt="Thiệp Cảm Ơn 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Cảm Ơn 3</h5>
+                        <p class="card-text">Giá: 48.000 VNĐ</p>
+                        <a href="order.html?product=cam_on_3" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product10.jpg" class="card-img-top" alt="Thiệp Chúc Mừng 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Chúc Mừng 4</h5>
+                        <p class="card-text">Giá: 53.000 VNĐ</p>
+                        <a href="order.html?product=chuc_mung_4" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product11.jpg" class="card-img-top" alt="Thiệp Sinh Nhật 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Sinh Nhật 4</h5>
+                        <p class="card-text">Giá: 67.000 VNĐ</p>
+                        <a href="order.html?product=sinh_nhat_4" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product9.jpg" class="card-img-top" alt="Thiệp Cảm Ơn 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Cảm Ơn 4</h5>
+                        <p class="card-text">Giá: 49.000 VNĐ</p>
+                        <a href="order.html?product=cam_on_4" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product11.jpg" class="card-img-top" alt="Thiệp Chúc Mừng 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Chúc Mừng 5</h5>
+                        <p class="card-text">Giá: 54.000 VNĐ</p>
+                        <a href="order.html?product=chuc_mung_5" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product4.jpg" class="card-img-top" alt="Thiệp Sinh Nhật 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Sinh Nhật 5</h5>
+                        <p class="card-text">Giá: 68.000 VNĐ</p>
+                        <a href="order.html?product=sinh_nhat_5" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product5.jpg" class="card-img-top" alt="Thiệp Cảm Ơn 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Cảm Ơn 5</h5>
+                        <p class="card-text">Giá: 50.000 VNĐ</p>
+                        <a href="order.html?product=cam_on_5" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product6.jpg" class="card-img-top" alt="Thiệp Chúc Mừng 6">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Chúc Mừng 6</h5>
+                        <p class="card-text">Giá: 55.000 VNĐ</p>
+                        <a href="order.html?product=chuc_mung_6" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product7.jpg" class="card-img-top" alt="Thiệp Sinh Nhật 6">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Sinh Nhật 6</h5>
+                        <p class="card-text">Giá: 70.000 VNĐ</p>
+                        <a href="order.html?product=sinh_nhat_6" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product8.jpg" class="card-img-top" alt="Thiệp Cảm Ơn 6">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Cảm Ơn 6</h5>
+                        <p class="card-text">Giá: 52.000 VNĐ</p>
+                        <a href="order.html?product=cam_on_6" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product9.jpg" class="card-img-top" alt="Thiệp Chúc Mừng 7">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Chúc Mừng 7</h5>
+                        <p class="card-text">Giá: 56.000 VNĐ</p>
+                        <a href="order.html?product=chuc_mung_7" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product8.jpg" class="card-img-top" alt="Thiệp Sinh Nhật 7">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Sinh Nhật 7</h5>
+                        <p class="card-text">Giá: 72.000 VNĐ</p>
+                        <a href="order.html?product=sinh_nhat_7" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="../img/product11.jpg" class="card-img-top" alt="Thiệp Cảm Ơn 7">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiệp Cảm Ơn 7</h5>
+                        <p class="card-text">Giá: 53.000 VNĐ</p>
+                        <a href="order.html?product=cam_on_7" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Thiệp Viết Tay. Tất cả quyền được bảo lưu.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

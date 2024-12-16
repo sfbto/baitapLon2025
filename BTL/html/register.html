@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Viết Tay - Đăng Ký</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/ad.jpg" type="image/x-icon">
+    <style>
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        .register-form {
+            margin-left: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .login-message {
+            margin-top: 10px;
+        }
+        #searchMessage {
+            margin-top: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Thiệp Viết Tay</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Trang Chủ</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="about.html">Giới Thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Liên Hệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sitemap.html">Sitemap</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 ml-auto" onsubmit="return false;">
+                    <input class="form-control mr-sm-2" type="search" id="searchInput" placeholder="Tìm kiếm" aria-label="Search">
+                    <button class="btn btn-light my-2 my-sm-0" type="submit" onclick="searchProducts()">Tìm</button>
+                </form>
+                <div id="searchMessage"></div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container d-flex">
+        <aside class="sidebar col-md-3">
+            <h4>Khuyến Mãi</h4>
+            <img src="../img/ad.jpg" alt="Khuyến Mãi" class="img-fluid">
+            <p>Những mẫu thiệp giảm giá lên đến 30%!</p>
+        </aside>
+
+        <div class="register-form col-md-6">
+            <h2>Đăng Ký Tài Khoản</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerUsername">Tên Đăng Nhập</label>
+                    <input type="text" class="form-control" id="registerUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Mật Khẩu</label>
+                    <input type="password" class="form-control" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" class="form-control" id="registerEmail" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng Ký</button>
+                <div id="registerMessage" class="login-message"></div>
+            </form>
+            <p class="mt-2">Đã có tài khoản? <a href="login.html">Đăng nhập tại đây</a></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Thiệp Viết Tay. Tất cả quyền được bảo lưu.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#registerForm').on('submit', function(e) {
+                e.preventDefault(); // Ngăn chặn hành động mặc định của form
+
+                const username = $('#registerUsername').val().trim();
+                const password = $('#registerPassword').val().trim();
+                const email = $('#registerEmail').val().trim();
+
+                // Giả lập hành động đăng ký thành công
+                $('#registerMessage').html('<div class="alert alert-success">Đăng ký thành công! Bạn có thể đăng nhập ngay.</div>');
+                // Xóa form sau khi đăng ký
+                setTimeout(() => {
+                    $('#registerForm')[0].reset();
+                }, 2000);
+            });
+        });
+
+        function searchProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+            let found = false;
+
+            products.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase();
+                if (productName.includes(input)) {
+                    product.style.display = 'block';
+                    found = true;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+
+            const searchMessage = document.getElementById('searchMessage');
+            searchMessage.textContent = found ? '' : 'Không tìm thấy sản phẩm nào!';
+        }
+    </script>
+</body>
+</html>
